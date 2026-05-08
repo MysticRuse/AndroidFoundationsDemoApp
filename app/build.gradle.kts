@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sample.android.composebasics"
+    namespace = "com.sample.android.essentialcompose"
     compileSdk = 35
 
     defaultConfig {
