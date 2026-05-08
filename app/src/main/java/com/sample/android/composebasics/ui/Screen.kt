@@ -8,4 +8,7 @@ sealed class Screen(val route: String, val title: String) {
     object Architecture: Screen("architecture", "Architecture Lab")
     object ComponentsNLifeCycle: Screen("components_n_lifecycle", "Lifecycle & Components")
     object Networking: Screen("networking", "Networking & Persistence")
+
+    object CodingExercises: Screen("coding_exercises", "Coding Exercises")
+
 }

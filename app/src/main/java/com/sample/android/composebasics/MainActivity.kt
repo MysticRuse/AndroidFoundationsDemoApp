@@ -25,6 +25,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sample.android.composebasics.architecture.ArchitectureScreen
 import com.sample.android.composebasics.lifecycleandandroidcomponents.ComponentsNLifeCycleScreen
+import com.sample.android.composebasics.livecodingsamples.CodingExercisesScreen
 import com.sample.android.composebasics.networkingdatapersistence.NetworkingScreen
 import com.sample.android.composebasics.ui.CommonTopAppBar
 import com.sample.android.composebasics.ui.Screen
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                             Screen.Architecture.route -> Screen.Architecture.title
                             Screen.ComponentsNLifeCycle.route -> Screen.ComponentsNLifeCycle.title
                             Screen.Networking.route -> Screen.Networking.title
+                            Screen.CodingExercises.route -> Screen.CodingExercises.title
                             else -> Screen.Home.title
                         }
 
@@ -74,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                         composable(Screen.Architecture.route) { ArchitectureScreen() }
                         composable(Screen.ComponentsNLifeCycle.route) { ComponentsNLifeCycleScreen() }
                         composable(Screen.Networking.route) { NetworkingScreen() }
+                        composable(Screen.CodingExercises.route) { CodingExercisesScreen() }
                     }
                 }
             }
@@ -84,12 +87,13 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun LauncherScreen(onNavigate: (String) -> Unit) {
     val items = listOf(
-        ActivityLink(Screen.BasicsCodeLab.title, Screen.BasicsCodeLab.route),
-        ActivityLink(Screen.ViewModelExperiment.title, Screen.ViewModelExperiment.route),
-        ActivityLink(Screen.ComposeExperiments.title, Screen.ComposeExperiments.route),
-        ActivityLink(Screen.Architecture.title, Screen.Architecture.route),
-        ActivityLink(Screen.ComponentsNLifeCycle.title, Screen.ComponentsNLifeCycle.route),
-        ActivityLink(Screen.Networking.title, Screen.Networking.route)
+        ScreenLink(Screen.BasicsCodeLab.title, Screen.BasicsCodeLab.route),
+        ScreenLink(Screen.ViewModelExperiment.title, Screen.ViewModelExperiment.route),
+        ScreenLink(Screen.ComposeExperiments.title, Screen.ComposeExperiments.route),
+        ScreenLink(Screen.Architecture.title, Screen.Architecture.route),
+        ScreenLink(Screen.ComponentsNLifeCycle.title, Screen.ComponentsNLifeCycle.route),
+        ScreenLink(Screen.Networking.title, Screen.Networking.route),
+        ScreenLink(Screen.CodingExercises.title, Screen.CodingExercises.route),
     )
 
     Surface(
@@ -100,7 +104,7 @@ fun LauncherScreen(onNavigate: (String) -> Unit) {
             modifier = Modifier.padding(16.dp)
         ) {
             items(items) { item ->
-                ActivityLinkItem(activityLink = item) {
+                ScreenLinkItem(screenLink = item) {
                     onNavigate(item.route)
                 }
                 HorizontalDivider()
@@ -110,9 +114,9 @@ fun LauncherScreen(onNavigate: (String) -> Unit) {
 }
 
 @Composable
-fun ActivityLinkItem(activityLink: ActivityLink, onClick: () -> Unit) {
+fun ScreenLinkItem(screenLink: ScreenLink, onClick: () -> Unit) {
     Text(
-        text = activityLink.name,
+        text = screenLink.name,
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier
             .fillMaxWidth()
@@ -122,7 +126,7 @@ fun ActivityLinkItem(activityLink: ActivityLink, onClick: () -> Unit) {
 }
 
 
-data class ActivityLink(
+data class ScreenLink(
     val name: String,
     val route: String
 )
