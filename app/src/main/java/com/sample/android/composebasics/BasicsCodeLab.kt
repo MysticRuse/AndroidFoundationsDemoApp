@@ -34,6 +34,25 @@ import androidx.compose.ui.unit.dp
 import com.sample.android.composebasics.ui.CommonTopAppBar
 import com.sample.android.composebasics.ui.theme.ComposeBasicsTheme
 
+@Composable
+fun BasicsCodeLabScreen(
+    modifier: Modifier = Modifier,
+    names: List<String> = listOf("World", "Compose")
+) {
+
+    // 4. Add logic to show different screens
+    var shouldShowOnboarding by remember { mutableStateOf(true) }
+
+    Surface(modifier) {
+        if (shouldShowOnboarding) {
+            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
+        } else {
+            Greetings()
+        }
+    }
+}
+
+
 class BasicsCodelabActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,36 +66,10 @@ class BasicsCodelabActivity : ComponentActivity() {
                         )
                     }
                 ) { innerPadding ->
-                    MyApp(modifier = Modifier.padding(innerPadding))
+                    BasicsCodeLabScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
-    }
-}
-
-@Composable
-fun MyApp(
-    modifier: Modifier = Modifier,
-    names: List<String> = listOf("World", "Compose")
-) {
-
-    // 4. Add logic to show different screens in MyApp
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
-
-    Surface(modifier) {
-        if (shouldShowOnboarding) {
-            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
-        } else {
-            Greetings()
-        }
-    }
-}
-
-@Preview
-@Composable
-fun MyAppPreview() {
-    ComposeBasicsTheme {
-        MyApp(Modifier.fillMaxSize())
     }
 }
 
@@ -148,5 +141,14 @@ fun OnboardingScreen(
         ) {
             Text("Continue")
         }
+    }
+}
+
+
+@Preview
+@Composable
+fun BasicsCodeLabScreenPreview() {
+    ComposeBasicsTheme {
+        BasicsCodeLabScreen(Modifier.fillMaxSize())
     }
 }

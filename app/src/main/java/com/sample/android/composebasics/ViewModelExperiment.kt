@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -39,6 +40,29 @@ class MyViewModel : ViewModel() {
     }
 }
 
+@Composable
+fun ViewModelExperimentScreen() {
+    val viewModel: MyViewModel = viewModel()
+    val data by viewModel.state.collectAsState()
+
+    Surface(
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = data,
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+            Button(onClick = { viewModel.refreshData() }) {
+                Text("Refresh Data")
+            }
+        }
+    }
+}
+
+
+//================== Old Activity ============================
 class ViewModelExperimentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

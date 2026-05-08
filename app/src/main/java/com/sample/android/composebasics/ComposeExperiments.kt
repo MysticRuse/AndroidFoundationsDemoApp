@@ -27,6 +27,23 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+
+@Composable
+fun ComposeExperimentsScreen() {
+    var currentExperiment by remember { mutableStateOf("Menu") }
+
+    Surface(modifier = Modifier.fillMaxSize()) {
+        when (currentExperiment) {
+            "Menu" -> ExperimentMenu { currentExperiment = it }
+            "Counter" -> CounterExperiment()
+            "Searchable List" -> SearchableListExperiment()
+            "Toggle Button" -> ToggleButtonExperiment()
+            "Login Form" -> LoginFormExperiment()
+            "Data Fetching" -> DataFetchingExperiment()
+        }
+    }
+}
+
 class ComposeExperimentsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

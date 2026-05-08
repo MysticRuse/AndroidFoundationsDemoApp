@@ -18,38 +18,20 @@ import com.sample.android.composebasics.ui.CommonTopAppBar
 import com.sample.android.composebasics.ui.theme.ComposeBasicsTheme
 
 /**
- * Main Activity for Networking and Data Persistence Exercises.
- * This activity provides a menu to explore the implementations of Room, Retrofit, OkHttp Interceptors,
- * and the NetworkBoundResource pattern.
+ *  This screen provides a menu to explore the implementations of Room, Retrofit, OkHttp Interceptors,
+ *  and the NetworkBoundResource pattern.
  */
-class NetworkingDataPersistenceActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ComposeBasicsTheme {
-                var currentLesson by rememberSaveable { mutableStateOf("Menu") }
+@Composable
+fun NetworkingScreen() {
+    var currentLesson by rememberSaveable { mutableStateOf("Menu") }
 
-                Scaffold(
-                    topBar = {
-                        CommonTopAppBar(
-                            title = if (currentLesson == "Menu") "Networking & Persistence" else currentLesson,
-                            onBackClick = {
-                                if (currentLesson == "Menu") finish() else currentLesson = "Menu"
-                            }
-                        )
-                    }
-                ) { padding ->
-                    Box(modifier = Modifier.padding(padding)) {
-                        when (currentLesson) {
-                            "Menu" -> PersistenceLessonMenu { currentLesson = it }
-                            "Room Database (Notes App)" -> RoomLessonScreen()
-                            "OkHttp Auth Interceptor" -> InterceptorLessonScreen()
-                            "NetworkBoundResource Pattern" -> NBRScreen()
-                            "Retrofit Blog API" -> RetrofitLessonScreen()
-                        }
-                    }
-                }
-            }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        when (currentLesson) {
+            "Menu" -> PersistenceLessonMenu { currentLesson = it }
+            "Room Database (Notes App)" -> RoomLessonScreen()
+            "OkHttp Auth Interceptor" -> InterceptorLessonScreen()
+            "NetworkBoundResource Pattern" -> NBRScreen()
+            "Retrofit Blog API" -> RetrofitLessonScreen()
         }
     }
 }
@@ -109,4 +91,41 @@ fun RetrofitLessonScreen() {
                 "Check BlogApi.kt for the interface with GET, POST, PUT, and DELETE endpoints as required for Exercise 84.",
         modifier = Modifier.padding(16.dp)
     )
+}
+
+/**
+ * Main Activity for Networking and Data Persistence Exercises.
+ * This activity provides a menu to explore the implementations of Room, Retrofit, OkHttp Interceptors,
+ * and the NetworkBoundResource pattern.
+ */
+class NetworkingDataPersistenceActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ComposeBasicsTheme {
+                var currentLesson by rememberSaveable { mutableStateOf("Menu") }
+
+                Scaffold(
+                    topBar = {
+                        CommonTopAppBar(
+                            title = if (currentLesson == "Menu") "Networking & Persistence" else currentLesson,
+                            onBackClick = {
+                                if (currentLesson == "Menu") finish() else currentLesson = "Menu"
+                            }
+                        )
+                    }
+                ) { padding ->
+                    Box(modifier = Modifier.padding(padding)) {
+                        when (currentLesson) {
+                            "Menu" -> PersistenceLessonMenu { currentLesson = it }
+                            "Room Database (Notes App)" -> RoomLessonScreen()
+                            "OkHttp Auth Interceptor" -> InterceptorLessonScreen()
+                            "NetworkBoundResource Pattern" -> NBRScreen()
+                            "Retrofit Blog API" -> RetrofitLessonScreen()
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

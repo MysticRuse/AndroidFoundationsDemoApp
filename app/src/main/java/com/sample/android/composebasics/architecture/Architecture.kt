@@ -27,28 +27,94 @@ import com.sample.android.composebasics.architecture.uievents1time.EventsScreen
 import com.sample.android.composebasics.ui.CommonTopAppBar
 import com.sample.android.composebasics.ui.theme.ComposeBasicsTheme
 
+
+enum class ArchitectureLesson(val title: String) {
+    TODO("Todo (State Management)"),
+    REPOSITORY_FLOW("Repository Flow (Data Layers)"),
+    UI_EVENTS("UI Events (One-time logic)"),
+    OFFLINE_FIRST("Offline-First Pattern")
+}
+@Composable
+fun ArchitectureScreen() {
+    var currentLesson by rememberSaveable { mutableStateOf<ArchitectureLesson?>(null) }
+
+
+    Surface(modifier = Modifier.fillMaxSize()) {
+        when (currentLesson) {
+            null -> LessonMenu { currentLesson = it }
+            ArchitectureLesson.TODO -> TodoScreen()
+            ArchitectureLesson.REPOSITORY_FLOW -> {
+                val viewModel: UserViewModel = remember {
+                    val api = FakeUserApi()
+                    val dao = FakeUserDao()
+                    val repo = UserRepository(api, dao)
+                    UserViewModel(repo)
+                }
+                UserScreen(viewModel)
+            }
+            ArchitectureLesson.UI_EVENTS -> EventsScreen()
+            ArchitectureLesson.OFFLINE_FIRST -> {
+                val viewModel: TaskViewModel = remember {
+                    val api = FakeTaskApi()
+                    val dao = FakeTaskDao()
+                    val repo = TaskRepository(api, dao)
+                    TaskViewModel(repo)
+                }
+                TaskScreen(viewModel)
+            }
+        }
+    }
+}
+
+@Composable
+fun LessonMenu(onSelect: (ArchitectureLesson) -> Unit) {
+    val lessons = listOf(
+        ArchitectureLesson.TODO,
+        ArchitectureLesson.REPOSITORY_FLOW,
+        ArchitectureLesson.UI_EVENTS,
+        ArchitectureLesson.OFFLINE_FIRST
+    )
+
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(lessons) { lesson ->
+            ListItem(
+                headlineContent = { Text(lesson.title) },
+                modifier = Modifier.clickable { onSelect(lesson) }
+            )
+            HorizontalDivider()
+        }
+    }
+}
+
+@Composable
+fun ArchitecturePlaceholder(name: String) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text("$name Screen - Ready for your hand-coded implementation")
+    }
+}
+
 class ArchitectureActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeBasicsTheme {
-                var currentLesson by rememberSaveable { mutableStateOf("Menu") }
+                var currentLesson by rememberSaveable { mutableStateOf<ArchitectureLesson?>(null) }
 
                 Scaffold(
                     topBar = {
                         CommonTopAppBar(
-                            title = if (currentLesson == "Menu") "Architecture Lab" else currentLesson,
+                            title = currentLesson?.title ?: "Architecture Lab",
                             onBackClick = {
-                                if (currentLesson == "Menu") finish() else currentLesson = "Menu"
+                                if (currentLesson == null) finish() else currentLesson = null
                             }
                         )
                     }
                 ) { padding ->
                     Box(modifier = Modifier.padding(padding)) {
                         when (currentLesson) {
-                            "Menu" -> LessonMenu { currentLesson = it }
-                            "Todo (State Management)" -> TodoScreen()
-                            "Repository Flow (Data Layers)" -> {
+                            null -> LessonMenu { currentLesson = it }
+                            ArchitectureLesson.TODO -> TodoScreen()
+                            ArchitectureLesson.REPOSITORY_FLOW -> {
                                 val viewModel: UserViewModel = remember {
                                     val api = FakeUserApi()
                                     val dao = FakeUserDao()
@@ -57,8 +123,8 @@ class ArchitectureActivity : ComponentActivity() {
                                 }
                                 UserScreen(viewModel)
                             }
-                            "UI Events (One-time logic)" -> EventsScreen()
-                            "Offline-First Pattern" -> {
+                            ArchitectureLesson.UI_EVENTS -> EventsScreen()
+                            ArchitectureLesson.OFFLINE_FIRST -> {
                                 val viewModel: TaskViewModel = remember {
                                     val api = FakeTaskApi()
                                     val dao = FakeTaskDao()
@@ -72,31 +138,5 @@ class ArchitectureActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun LessonMenu(onSelect: (String) -> Unit) {
-    val lessons = listOf(
-        "Todo (State Management)",
-        "Repository Flow (Data Layers)",
-        "UI Events (One-time logic)",
-        "Offline-First Pattern"
-    )
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(lessons) { lesson ->
-            ListItem(
-                headlineContent = { Text(lesson) },
-                modifier = Modifier.clickable { onSelect(lesson) }
-            )
-            HorizontalDivider()
-        }
-    }
-}
-
-@Composable
-fun ArchitecturePlaceholder(name: String) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("$name Screen - Ready for your hand-coded implementation")
     }
 }

@@ -26,6 +26,56 @@ import com.sample.android.composebasics.lifecycleandandroidcomponents.savedstate
 import com.sample.android.composebasics.ui.CommonTopAppBar
 import com.sample.android.composebasics.ui.theme.ComposeBasicsTheme
 
+@Composable
+fun ComponentsNLifeCycleScreen() {
+    var currentLesson by rememberSaveable { mutableStateOf("Menu") }
+
+    Surface(modifier = Modifier.fillMaxSize()) {
+        when (currentLesson) {
+            "Menu" -> ComponentsLessonMenu { currentLesson = it }
+            "SavedStateHandle (Process Death)" -> {
+                val repository = remember { SearchRepository() }
+                val viewModel: SearchViewModel = viewModel(
+                    factory = SearchViewModelFactory(repository)
+                )
+                SearchScreen(viewModel = viewModel)
+            }
+            "Lifecycle-Aware Location" -> {
+                LocationTrackScreen()
+            }
+            "Connectivity Monitor (Broadcast/Callback)" -> {
+                ConnectivityScreen()
+            }
+        }
+    }
+}
+
+@Composable
+fun ComponentsLessonMenu(onSelect: (String) -> Unit) {
+    val lessons = listOf(
+        "SavedStateHandle (Process Death)",
+        "Lifecycle-Aware Location",
+        "Connectivity Monitor (Broadcast/Callback)"
+    )
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(lessons) { lesson ->
+            ListItem(
+                headlineContent = { Text(lesson) },
+                modifier = Modifier.clickable { onSelect(lesson) }
+            )
+            HorizontalDivider()
+        }
+    }
+}
+
+class SearchViewModelFactory(private val repository: SearchRepository) : ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+        val savedStateHandle = extras.createSavedStateHandle()
+        return SearchViewModel(savedStateHandle, repository) as T
+    }
+}
+
 class AndroidComponentsNLifeCycleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,31 +115,5 @@ class AndroidComponentsNLifeCycleActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun ComponentsLessonMenu(onSelect: (String) -> Unit) {
-    val lessons = listOf(
-        "SavedStateHandle (Process Death)",
-        "Lifecycle-Aware Location",
-        "Connectivity Monitor (Broadcast/Callback)"
-    )
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(lessons) { lesson ->
-            ListItem(
-                headlineContent = { Text(lesson) },
-                modifier = Modifier.clickable { onSelect(lesson) }
-            )
-            HorizontalDivider()
-        }
-    }
-}
-
-class SearchViewModelFactory(private val repository: SearchRepository) : ViewModelProvider.Factory {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
-        val savedStateHandle = extras.createSavedStateHandle()
-        return SearchViewModel(savedStateHandle, repository) as T
     }
 }
