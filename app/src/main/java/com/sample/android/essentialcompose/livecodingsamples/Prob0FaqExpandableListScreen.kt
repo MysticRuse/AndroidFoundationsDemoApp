@@ -49,6 +49,11 @@ val faqList = listOf(
     Pair("How do I optimize this code?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
 )
 
+val faqList2 = listOf(
+    Pair("faq1", "Answer1"),
+
+)
+
 @Composable
 fun FaqExpandableListScreen(faqs: List<Pair<String, String>> = faqList) {
 

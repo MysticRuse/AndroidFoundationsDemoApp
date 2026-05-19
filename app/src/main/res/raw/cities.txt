@@ -1,0 +1,1001 @@
+New York
+Los Angeles
+Chicago
+Houston
+Phoenix
+Philadelphia
+San Antonio
+San Diego
+Dallas
+San Jose
+Austin
+Jacksonville
+Fort Worth
+Columbus
+Charlotte
+Indianapolis
+San Francisco
+Seattle
+Denver
+Washington
+Nashville
+Oklahoma City
+El Paso
+Boston
+Portland
+Las Vegas
+Memphis
+Louisville
+Baltimore
+Milwaukee
+Albuquerque
+Tucson
+Fresno
+Sacramento
+Mesa
+Kansas City
+Atlanta
+Omaha
+Colorado Springs
+Raleigh
+Long Beach
+Virginia Beach
+Miami
+Oakland
+Minneapolis
+Tulsa
+Tampa
+Arlington
+New Orleans
+Wichita
+Cleveland
+Bakersfield
+Aurora
+Anaheim
+Honolulu
+Santa Ana
+Riverside
+Corpus Christi
+Lexington
+Henderson
+Stockton
+Saint Paul
+Cincinnati
+Pittsburgh
+Greensboro
+Anchorage
+Plano
+Lincoln
+Orlando
+Irvine
+Newark
+Durham
+Chula Vista
+Toledo
+Fort Wayne
+St. Petersburg
+Laredo
+Jersey City
+Chandler
+Madison
+Lubbock
+Scottsdale
+Reno
+Buffalo
+Gilbert
+Glendale
+North Las Vegas
+Winston-Salem
+Chesapeake
+Norfolk
+Fremont
+Garland
+Irving
+Hialeah
+Richmond
+Boise
+Spokane
+Baton Rouge
+Tacoma
+San Bernardino
+Modesto
+Fontana
+Des Moines
+Moreno Valley
+Santa Clarita
+Fayetteville
+Birmingham
+Oxnard
+Rochester
+Port St. Lucie
+Grand Rapids
+Huntsville
+Salt Lake City
+Frisco
+Yonkers
+Amarillo
+Glendale
+Huntington Beach
+McKinney
+Montgomery
+Augusta
+Aurora
+Akron
+Little Rock
+Tempe
+Overland Park
+Grand Prairie
+Tallahassee
+Cape Coral
+Mobile
+Knoxville
+Shreveport
+Worcester
+Ontario
+Vancouver
+Sioux Falls
+Chattanooga
+Brownsville
+Fort Lauderdale
+Providence
+Newport News
+Rancho Cucamonga
+Santa Rosa
+Peoria
+Oceanside
+Elk Grove
+Salem
+Pembroke Pines
+Eugene
+Garden Grove
+Cary
+Corona
+Springfield
+Fort Collins
+Jackson
+Alexandria
+Hayward
+Lancaster
+Salinas
+Palmdale
+Hollywood
+Pasadena
+Sunnyvale
+Macon
+Pomona
+Kansas City
+Escondido
+Savannah
+Bridgeport
+Joliet
+Naperville
+Bellevue
+Rockford
+Paterson
+Sterling Heights
+Killeen
+Torrance
+Denton
+Surprise
+Miramar
+Roseville
+Thornton
+McAllen
+Clarksville
+Midland
+Murfreesboro
+Waco
+Palm Bay
+Lakewood
+Columbia
+Carrollton
+Dayton
+West Valley City
+West Jordan
+Olathe
+Visalia
+Victorville
+Hampton
+Warren
+Gainesville
+Coral Springs
+Cedar Rapids
+Round Rock
+Stamford
+Berkeley
+Richardson
+Lewisville
+Tyler
+Allen
+Pearland
+College Station
+Arvada
+Cambridge
+Sugar Land
+Westminster
+Beaumont
+Clearwater
+Evansville
+Hartford
+Ann Arbor
+Abilene
+Concord
+Vallejo
+Independence
+Norman
+Provo
+Elgin
+Centennial
+Meridian
+Peoria
+Lansing
+High Point
+Clovis
+Odessa
+Tuscaloosa
+Fargo
+Rochester
+Wilmington
+North Charleston
+Davie
+New Haven
+Lakeland
+Carlsbad
+St. George
+Dublin
+Sparks
+Sandy Springs
+Billings
+Tuscaloosa
+Norwalk
+Palm Coast
+Woodbridge
+Daly City
+Tracy
+Daytona Beach
+Jurupa Valley
+Charleston
+Broken Arrow
+Sandy
+Greeley
+South Bend
+Burbank
+El Monte
+El Cajon
+Rialto
+Temecula
+San Mateo
+Antioch
+Longmont
+Broomfield
+Fishers
+Plantation
+Lee Summit
+Largo
+Bend
+Nampa
+Edinburg
+Hesperia
+Federal Way
+Carson
+Decatur
+Boca Raton
+Suffolk
+Springfield
+Santa Maria
+Kennewick
+Gresham
+New Braunfels
+Leesburg
+Roanoke
+Pueblo
+South Gate
+Chico
+Menifee
+Vista
+Sparks
+Redding
+Yuma
+Vacaville
+Lynn
+Beaverton
+Goodyear
+Mission
+Taylorsville
+Pharr
+Perris
+San Marcos
+Lake Charles
+Bethlehem
+Hattiesburg
+Olympia
+Missoula
+Lake Havasu City
+Layton
+Buckeye
+Mankato
+Bloomington
+Maple Grove
+Medford
+Rogers
+Conway
+Loveland
+Flagstaff
+Joplin
+Lodi
+Manteca
+Madera
+Lake Elsinore
+Rocklin
+Westminster
+Turlock
+Caldwell
+Twin Falls
+Porterville
+Hanford
+Lompoc
+Prescott
+Sedona
+Chandler
+Gilbert
+Tempe
+Scottsdale
+Peoria
+Surprise
+Avondale
+Goodyear
+Buckeye
+Maricopa
+Casa Grande
+Flagstaff
+Yuma
+Lake Havasu City
+Bullhead City
+Prescott Valley
+Sierra Vista
+Kingman
+Apache Junction
+Queen Creek
+Marana
+Sahuarita
+Oro Valley
+Florence
+Coolidge
+Eloy
+Nogales
+Douglas
+Safford
+Show Low
+Payson
+Sedona
+Cottonwood
+Camp Verde
+Clarkdale
+Winslow
+Holbrook
+Page
+Snowflake
+Pinetop
+Eagar
+Springerville
+Globe
+Miami
+Superior
+Kearny
+Hayden
+Clifton
+Morenci
+Bisbee
+Tombstone
+Willcox
+Benson
+Patagonia
+Tubac
+Green Valley
+Catalina
+Tucson
+South Tucson
+Vail
+Corona de Tucson
+Drexel Heights
+Valencia West
+Three Points
+Sells
+Ajo
+Gila Bend
+Dateland
+Wellton
+San Luis
+Somerton
+Tacna
+Roll
+Tokyo
+Delhi
+Shanghai
+Beijing
+Mumbai
+Osaka
+Dhaka
+Cairo
+Mexico City
+Sao Paulo
+Lagos
+Istanbul
+Buenos Aires
+Kolkata
+Kinshasa
+Manila
+Tianjin
+Guangzhou
+Rio de Janeiro
+Lahore
+Bangalore
+Shenzhen
+Moscow
+Chennai
+Bogota
+Jakarta
+Lima
+Bangkok
+Hyderabad
+Seoul
+Nagoya
+London
+Chengdu
+Nanjing
+Tehran
+Ho Chi Minh City
+Luanda
+Ahmedabad
+Kuala Lumpur
+Hangzhou
+Hong Kong
+Dongguan
+Pune
+Surat
+Baghdad
+Riyadh
+Jeddah
+Santiago
+Madrid
+Dar es Salaam
+Toronto
+Johannesburg
+Singapore
+Yangon
+Alexandria
+Guadalajara
+Kabul
+Ankara
+Chittagong
+Fukuoka
+Harbin
+Surabaya
+Wuhan
+Foshan
+Zhengzhou
+Barcelona
+Abidjan
+Montreal
+Nairobi
+Casablanca
+Algiers
+Pyongyang
+Changsha
+Cape Town
+Durban
+Yokohama
+Kunming
+Brasilia
+Jaipur
+Medellín
+Accra
+Dakar
+Sydney
+Melbourne
+Brisbane
+Perth
+Adelaide
+Auckland
+Wellington
+Christchurch
+Hamilton
+Tauranga
+Dunedin
+Napier
+Palmerston North
+Nelson
+Queenstown
+Invercargill
+Rotorua
+New Plymouth
+Whangarei
+Gisborne
+Timaru
+Blenheim
+Greymouth
+Westport
+Kaikoura
+Oamaru
+Ashburton
+Masterton
+Levin
+Wanganui
+Feilding
+Tokoroa
+Taupo
+Whakatane
+Opotiki
+Thames
+Paeroa
+Matamata
+Cambridge
+Te Awamutu
+Otorohanga
+Te Kuiti
+Taumarunui
+Huntly
+Ngaruawahia
+Raglan
+Whitianga
+Coromandel
+Dargaville
+Kaikohe
+Kerikeri
+Paihia
+Kaitaia
+Mangonui
+Munich
+Berlin
+Hamburg
+Frankfurt
+Cologne
+Stuttgart
+Dusseldorf
+Leipzig
+Dortmund
+Essen
+Bremen
+Dresden
+Hanover
+Nuremberg
+Duisburg
+Bochum
+Wuppertal
+Bielefeld
+Bonn
+Munster
+Karlsruhe
+Mannheim
+Augsburg
+Wiesbaden
+Aachen
+Freiburg
+Heidelberg
+Regensburg
+Potsdam
+Rostock
+Mainz
+Kiel
+Lubeck
+Erfurt
+Magdeburg
+Kassel
+Oberhausen
+Hagen
+Saarbrucken
+Hamm
+Herne
+Solingen
+Ludwigshafen
+Leverkusen
+Oldenburg
+Osnabrück
+Paris
+Lyon
+Marseille
+Toulouse
+Nice
+Nantes
+Strasbourg
+Montpellier
+Bordeaux
+Lille
+Rennes
+Reims
+Saint-Etienne
+Toulon
+Le Havre
+Grenoble
+Dijon
+Angers
+Nimes
+Villeurbanne
+Clermont-Ferrand
+Le Mans
+Aix-en-Provence
+Brest
+Tours
+Amiens
+Limoges
+Perpignan
+Metz
+Besancon
+Orleans
+Rouen
+Mulhouse
+Caen
+Nancy
+Avignon
+Rome
+Milan
+Naples
+Turin
+Palermo
+Genoa
+Bologna
+Florence
+Catania
+Bari
+Venice
+Verona
+Messina
+Padua
+Trieste
+Brescia
+Taranto
+Prato
+Parma
+Modena
+Reggio Calabria
+Reggio Emilia
+Perugia
+Livorno
+Ravenna
+Cagliari
+Foggia
+Rimini
+Ferrara
+Sassari
+Latina
+Giugliano
+Monza
+Siracusa
+Bergamo
+Pescara
+Trento
+Forli
+Vicenza
+Terni
+Bolzano
+Novara
+Piacenza
+Ancona
+Andria
+Udine
+Arezzo
+Cesena
+Lecce
+Pesaro
+Barletta
+Alessandria
+La Spezia
+Amsterdam
+Rotterdam
+The Hague
+Utrecht
+Eindhoven
+Groningen
+Tilburg
+Almere
+Breda
+Nijmegen
+Enschede
+Apeldoorn
+Haarlem
+Arnhem
+Zaanstad
+Amersfoort
+Haarlemmermeer
+Hertogenbosch
+Zoetermeer
+Zwolle
+Maastricht
+Leiden
+Dordrecht
+Ede
+Emmen
+Westland
+Delft
+Deventer
+Sittard
+Helmond
+Leeuwarden
+Oss
+Alkmaar
+Hilversum
+Oslo
+Bergen
+Trondheim
+Stavanger
+Drammen
+Fredrikstad
+Kristiansand
+Sandnes
+Tromso
+Sarpsborg
+Skien
+Bodo
+Arendal
+Hamar
+Larvik
+Halden
+Lillehammer
+Molde
+Alesund
+Haugesund
+Moss
+Tonsberg
+Sandefjord
+Kongsberg
+Horten
+Harstad
+Narvik
+Hammerfest
+Vardo
+Kirkenes
+Alta
+Vadso
+Honningsvag
+Stockholm
+Gothenburg
+Malmo
+Uppsala
+Linkoping
+Vasteras
+Orebro
+Norrkoping
+Helsingborg
+Jonkoping
+Umea
+Lund
+Boras
+Sundsvall
+Gavle
+Eskilstuna
+Halmstad
+Vaxjo
+Karlstad
+Sodertalje
+Trollhattan
+Kalmar
+Kristianstad
+Skelleftea
+Lulea
+Falun
+Visby
+Ostersund
+Kiruna
+Helsinki
+Espoo
+Tampere
+Vantaa
+Oulu
+Turku
+Jyvaskyla
+Lahti
+Kuopio
+Kouvola
+Pori
+Joensuu
+Lappeenranta
+Vaasa
+Hameenlinna
+Seinajoki
+Rovaniemi
+Mikkeli
+Kotka
+Salo
+Porvoo
+Kokkola
+Lohja
+Rauma
+Kajaani
+Savonlinna
+Prague
+Brno
+Ostrava
+Plzen
+Liberec
+Olomouc
+Ceske Budejovice
+Hradec Kralove
+Usti nad Labem
+Pardubice
+Zlin
+Havirov
+Kladno
+Most
+Opava
+Krakow
+Warsaw
+Lodz
+Wroclaw
+Poznan
+Gdansk
+Szczecin
+Bydgoszcz
+Lublin
+Katowice
+Bialystok
+Gdynia
+Czestochowa
+Radom
+Torun
+Sosnowiec
+Rzeszow
+Kielce
+Gliwice
+Zabrze
+Olsztyn
+Bytom
+Bielsko Biala
+Vienna
+Graz
+Linz
+Salzburg
+Innsbruck
+Klagenfurt
+Villach
+Wels
+Sankt Polten
+Dornbirn
+Zurich
+Geneva
+Basel
+Bern
+Lausanne
+Winterthur
+Lucerne
+St. Gallen
+Lugano
+Biel
+Thun
+Koniz
+Lisbon
+Porto
+Braga
+Funchal
+Coimbra
+Setubal
+Aveiro
+Faro
+Evora
+Leiria
+Viseu
+Guarda
+Castelo Branco
+Beja
+Portalegre
+Viana do Castelo
+Vila Real
+Braganca
+Santarem
+Peniche
+Sintra
+Cascais
+Dublin
+Cork
+Galway
+Limerick
+Waterford
+Kilkenny
+Drogheda
+Dundalk
+Sligo
+Athlone
+Ennis
+Tralee
+Killarney
+Wexford
+Carlow
+Clonmel
+Letterkenny
+Mullingar
+Tullamore
+Longford
+Roscommon
+Castlebar
+Ballina
+Westport
+Clifden
+Kenmare
+Dingle
+Cobh
+Kinsale
+Youghal
+Mallow
+Fermoy
+Midleton
+Bandon
+Canberra
+Gold Coast
+Newcastle
+Wollongong
+Hobart
+Geelong
+Townsville
+Cairns
+Darwin
+Toowoomba
+Ballarat
+Bendigo
+Launceston
+Mackay
+Rockhampton
+Bundaberg
+Gladstone
+Mildura
+Shepparton
+Wagga Wagga
+Albury
+Tamworth
+Orange
+Dubbo
+Bathurst
+Coffs Harbour
+Port Macquarie
+Lismore
+Grafton
+Armidale
+Broken Hill
+Coober Pedy
+Alice Springs
+Katherine
+Broome
+Geraldton
+Kalgoorlie
+Bunbury
+Albany
+Mandurah
+Busselton
+Esperance
+Port Augusta
+Whyalla
+Mount Gambier
+Murray Bridge
+Port Lincoln
+Port Pirie
+Ceduna
+Kingscote
+Victor Harbor
+Goolwa
+Hahndorf
+Edinburgh
+Glasgow
+Aberdeen
+Dundee
+Inverness
+Stirling
+Perth
+St Andrews
+Dumfries
+Ayr
+Oban
+Fort William
+Elgin
+Wick
+Thurso
+Lerwick
+Kirkwall
+Stornoway
+Portree
+Tobermory
+Campbeltown
+Stranraer
+Peebles
+Kelso
+Hawick
+Galashiels
+Cardiff
+Swansea

@@ -14,10 +14,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 enum class LiveCodingSamples(val title: String) {
     EXPANDABLE_LIST_MULTIPLE("Expandable List - Multiple"),
-    EXPANDABLE_LIST_SINGLE("Expandable List - Single")
+    EXPANDABLE_LIST_SINGLE("Expandable List - Single"),
+    DEBOUNCED_SEARCH_BAR("Debounced Search Bar"),
+    INFINITE_COUNTER_WITH_UNDO("Infinite Counter with Undo"),
+
+    MULTI_SELECT_CHIP_GROUP("Multi Select Chip Group"),
+    SWIPE_TO_DISMISS_LIST_ITEM("Swipe to Dismiss List Item"),
+
 }
 @Composable
 fun CodingExercisesScreen() {
@@ -29,6 +37,15 @@ fun CodingExercisesScreen() {
             null -> LiveCodingSamplesMenu { currentSample = it }
             LiveCodingSamples.EXPANDABLE_LIST_MULTIPLE -> FaqExpandableListScreen()
             LiveCodingSamples.EXPANDABLE_LIST_SINGLE -> FaqExpandableListScreenExpandOne()
+            LiveCodingSamples.DEBOUNCED_SEARCH_BAR -> {
+                val viewModel: CityViewModel = viewModel(
+                    factory = CityViewModelFactory(LocalContext.current)
+                )
+                SearchListScreen(viewModel)
+            }
+            LiveCodingSamples.INFINITE_COUNTER_WITH_UNDO -> InfiniteCounterWithUndoScreen()
+            LiveCodingSamples.MULTI_SELECT_CHIP_GROUP -> MultiSelectChipChipScreen()
+            LiveCodingSamples.SWIPE_TO_DISMISS_LIST_ITEM  -> SwipeToDismissListItemScreen()
         }
     }
 
@@ -38,7 +55,11 @@ fun CodingExercisesScreen() {
 fun LiveCodingSamplesMenu(onSelect: (LiveCodingSamples) -> Unit) {
     val samples = listOf(
         LiveCodingSamples.EXPANDABLE_LIST_MULTIPLE,
-        LiveCodingSamples.EXPANDABLE_LIST_SINGLE
+        LiveCodingSamples.EXPANDABLE_LIST_SINGLE,
+        LiveCodingSamples.DEBOUNCED_SEARCH_BAR,
+        LiveCodingSamples.INFINITE_COUNTER_WITH_UNDO,
+        LiveCodingSamples.MULTI_SELECT_CHIP_GROUP,
+        LiveCodingSamples.SWIPE_TO_DISMISS_LIST_ITEM,
     )
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(samples) { sample ->
