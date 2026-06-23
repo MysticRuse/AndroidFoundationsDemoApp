@@ -27,6 +27,7 @@ import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -35,8 +36,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.UUID.randomUUID
 
 /**
  * Problem 4: Swipe-to-Dismiss List Item
@@ -62,9 +74,93 @@ import kotlinx.coroutines.launch
  * However, "Undo" will only work for the specific Snackbar currently visible.
  */
 
+// Have a ViewModel to orchestrate the state of the UI.
+
+data class SwipeableItem(
+    val id: String = randomUUID().toString(),
+    val label : String
+)
+
+class SwipeRepository{
+    private val _items = MutableStateFlow((1..10).map { SwipeableItem(label = "Item $it") })
+    val items: StateFlow<List<SwipeableItem>> = _items.asStateFlow()
+
+    fun removeItem(item: SwipeableItem) {
+        _items.update { current -> current.filter { it.id != item.id }}
+    }
+
+    fun insertItem(index: Int, item: SwipeableItem) {
+        _items.update { current ->
+            current.toMutableList().apply { add(index, item) }
+        }
+    }
+}
+
+class SwipeListItemViewModel(
+    private val repository: SwipeRepository = SwipeRepository()
+) : ViewModel() {
+
+    val items: StateFlow<List<SwipeableItem>> = repository.items
+        .stateIn(viewModelScope,
+            SharingStarted.WhileSubscribed(5000), emptyList())
+
+    fun onDeleteItem(
+        item: SwipeableItem,
+        snackbarHostState: SnackbarHostState
+    ) {
+        viewModelScope.launch {
+            val listBeforeDeletion = items.value
+            val index = listBeforeDeletion.indexOf(item)
+
+            if (index != -1) {
+                // 1. Optimistic Delete
+                repository.removeItem(item)
+
+                // 2. Show Undo Snackbar
+                val result = snackbarHostState.showSnackbar(
+                    message = "${item.label} deleted",
+                    actionLabel = "Undo",
+                    duration = SnackbarDuration.Short
+                )
+
+                // 3. Handle Undo Action
+                if (result == SnackbarResult.ActionPerformed) {
+                    repository.insertItem(index, item)
+                }
+            }
+        }
+    }
+}
 
 @Composable
-fun SwipeToDismissListItemScreen() {
+fun SwipeToDismissListItemScreen(
+    viewModel: SwipeListItemViewModel = viewModel()
+) {
+    val items by viewModel.items.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    Scaffold(
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
+    ) { paddingValues ->
+        LazyColumn(
+            modifier = Modifier.padding(paddingValues),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(items, key = { it.id }) { item ->
+                SwipeToDismissRow(
+                    item = item.label,
+                    onDelete = {
+                        viewModel.onDeleteItem(item, snackbarHostState)
+                        true
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SwipeToDismissListItemScreenLocalState() {
     // Use remember + mutableStateListOf to track deletions
     val items =  remember {
         mutableStateListOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "item 6", "Item 7")

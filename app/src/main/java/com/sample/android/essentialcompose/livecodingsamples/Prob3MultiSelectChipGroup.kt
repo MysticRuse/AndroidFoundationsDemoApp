@@ -11,12 +11,19 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 
 /**
@@ -90,25 +97,70 @@ fun MultiSelectChipGroup(
 }
 
 @Composable
-fun MultiSelectChipChipScreen() {
-    val allTags = remember { listOf("Kotlin", "Java", "Swift", "Dart", "Python", "C++", "Go") }
-
-    // Caller owns the state.
-    // Identity vs Equality: If the tags were objects instead of strings, you'd mention that the
-    // Set relies on equals() and hashCode() for the toggle logic to work correctly.
-    var selectedTags by rememberSaveable { mutableStateOf(setOf<String>())}
+fun MultiSelectChipChipScreen(
+    viewModel: ChipViewModel = viewModel()
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Select Programming Languages", style = MaterialTheme.typography.headlineSmall)
         Spacer(modifier = Modifier.height(16.dp))
 
         MultiSelectChipGroup(
-            tags = allTags,
-            selectedTags = selectedTags,
-            onToggleTag = { selectedTags = it }
+            tags = uiState.tags,
+            selectedTags = uiState.selectedTags,
+            onToggleTag = { viewModel.onToggleTag(it) }
         )
 
         // Displaying results to prove callback worked.
-        Text("Selected: ${selectedTags.joinToString()}")
+        Text("Selected: ${uiState.selectedTags.joinToString()}")
+    }
+}
+
+/**
+ * Repository Layer
+ * In a real app, this would fetch from a DAO (Room) or API (Retrofit).
+ * It exposes data as a Flow for reactivity.
+ */
+class ChipRepository {
+    fun getTags(): Flow<List<String>> = flowOf(
+        listOf("Kotlin", "Java", "Swift", "Dart", "Python", "C++", "Go")
+    )
+}
+
+/**
+ * UI State representation
+ * Encapsulates everything the UI needs to render.
+ */
+data class ChipUiState(
+    val tags: List<String> = emptyList(),
+    val selectedTags: Set<String> = emptySet()
+)
+
+/**
+ * ViewModel Layer
+ * Hoists the state and handles business logic, making the UI easier to test.
+ * Interacts with the Repository to fetch data.
+ */
+class ChipViewModel(
+    private val repository: ChipRepository = ChipRepository()
+) : ViewModel() {
+    private val _uiState = MutableStateFlow(ChipUiState())
+    val uiState: StateFlow<ChipUiState> = _uiState.asStateFlow()
+
+    init {
+        fetchTags()
+    }
+
+    private fun fetchTags() {
+        viewModelScope.launch {
+            repository.getTags().collect { tags ->
+                _uiState.update { it.copy(tags = tags) }
+            }
+        }
+    }
+
+    fun onToggleTag(newSelection: Set<String>) {
+        _uiState.update { it.copy(selectedTags = newSelection) }
     }
 }

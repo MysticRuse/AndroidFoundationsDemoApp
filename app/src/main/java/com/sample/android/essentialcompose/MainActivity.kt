@@ -3,6 +3,7 @@ package com.sample.android.essentialcompose
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,6 +32,7 @@ import com.sample.android.essentialcompose.ui.CommonTopAppBar
 import com.sample.android.essentialcompose.ui.Screen
 import com.sample.android.essentialcompose.ui.theme.ComposeBasicsTheme
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

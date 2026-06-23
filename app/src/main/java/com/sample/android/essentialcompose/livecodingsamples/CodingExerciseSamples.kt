@@ -26,7 +26,9 @@ enum class LiveCodingSamples(val title: String) {
     MULTI_SELECT_CHIP_GROUP("Multi Select Chip Group"),
     SWIPE_TO_DISMISS_LIST_ITEM("Swipe to Dismiss List Item"),
 
+    PAGINATED_LIST_WITH_LOADING_FOOTER("Paginated List"),
 }
+
 @Composable
 fun CodingExercisesScreen() {
 
@@ -46,6 +48,7 @@ fun CodingExercisesScreen() {
             LiveCodingSamples.INFINITE_COUNTER_WITH_UNDO -> InfiniteCounterWithUndoScreen()
             LiveCodingSamples.MULTI_SELECT_CHIP_GROUP -> MultiSelectChipChipScreen()
             LiveCodingSamples.SWIPE_TO_DISMISS_LIST_ITEM  -> SwipeToDismissListItemScreen()
+            LiveCodingSamples.PAGINATED_LIST_WITH_LOADING_FOOTER -> PaginatedListScreen()
         }
     }
 
@@ -60,6 +63,7 @@ fun LiveCodingSamplesMenu(onSelect: (LiveCodingSamples) -> Unit) {
         LiveCodingSamples.INFINITE_COUNTER_WITH_UNDO,
         LiveCodingSamples.MULTI_SELECT_CHIP_GROUP,
         LiveCodingSamples.SWIPE_TO_DISMISS_LIST_ITEM,
+        LiveCodingSamples.PAGINATED_LIST_WITH_LOADING_FOOTER,
     )
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(samples) { sample ->
